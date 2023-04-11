@@ -126,7 +126,9 @@ export const HomeContent = () => {
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                私についてもっと詳しく(canvaスライド)
+                <span className='font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-stone-900  via-slate-600 to-stone-900'>
+                  私についてもっと詳しく(canvaスライド)
+                </span>
               </a>
             </li>
           </ul>

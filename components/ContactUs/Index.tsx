@@ -9,6 +9,8 @@ import {
 } from '@mui/material';
 import { init, send } from 'emailjs-com';
 import ClearIcon from '@mui/icons-material/Clear';
+import Link from 'next/link';
+import { siteConfig } from '@/site.config';
 
 function Transition(props: any) {
   return <Slide {...props} direction='left' />;
@@ -76,6 +78,30 @@ export const ContactUs: React.FC = () => {
         alignItems='center'
         justifyItems='center'
       >
+        <p>
+          お問い合わせページです。下記のフォームから問い合わせるか、
+          <br />
+          <a
+            className="after:content-['_↗']"
+            href={siteConfig.twitterUrl}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <span className='font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-stone-900  via-slate-600 to-stone-900'>
+              TwitterのDM
+            </span>
+          </a>
+          もしくは
+          <a
+            className="after:content-['_↗']"
+            href='mailto:YamaKato1004@outlook.jp'
+          >
+            <span className='font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-stone-900  via-slate-600 to-stone-900'>
+              YamaKato1004@outlook.jp
+            </span>
+          </a>
+          までお願いします。
+        </p>
         <form onSubmit={onSubmit}>
           <TextField
             className='contact-name'

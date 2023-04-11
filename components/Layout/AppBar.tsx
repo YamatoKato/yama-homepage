@@ -11,6 +11,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Link from 'next/link';
 import { MenuPage } from '@/types/types';
+import { siteConfig } from '../../site.config';
 
 const pages: MenuPage[] = [
   {
@@ -58,7 +59,7 @@ function ResponsiveAppBar() {
               }}
               fontSize='20'
             >
-              yamaの気のまま
+              {siteConfig.homepageName}
             </Typography>
           </Link>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -114,7 +115,7 @@ function ResponsiveAppBar() {
                 textDecoration: 'none',
               }}
             >
-              yamaの気ままに
+              {siteConfig.homepageName}
             </Typography>
           </Link>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>

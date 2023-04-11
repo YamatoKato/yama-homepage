@@ -1,4 +1,5 @@
 export const siteConfig = {
+  homepageName: 'yamaの気ままに',
   title: 'About Me',
   blogTitle: 'yamaBlog',
   twitterUrl: 'https://twitter.com/Ext_cat_o',
