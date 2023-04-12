@@ -14,7 +14,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = results.map((page: any) => {
     return {
       params: {
-        slug: getRichText(page.properties.slug.rich_text),
+        slug: page.properties.slug.formula.string,
       },
     };
   });
