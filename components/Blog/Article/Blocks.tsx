@@ -87,7 +87,7 @@ const renderBlock = (block: any, index: number, headerBlocks?: any) => {
     case 'heading_2':
       return (
         <Scroll to={id} smooth={true} className='duration-300 hover:opacity-75'>
-          <h2 id={id} className=' text-slate-600'>
+          <h2 id={id} className=' text-zinc-800'>
             <Text text={value.rich_text} key={index} />
             <BsCheck2Square className='ml-2' />
           </h2>
@@ -98,7 +98,6 @@ const renderBlock = (block: any, index: number, headerBlocks?: any) => {
       return (
         <h3>
           <Text text={value.rich_text} key={index} />
-          <BsCheck2Square className='ml-2' />
         </h3>
       );
     case 'bulleted_list_item':
