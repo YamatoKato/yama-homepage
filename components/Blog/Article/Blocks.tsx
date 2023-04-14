@@ -20,13 +20,13 @@ const renderNestedList = (block: any) => {
   const { type } = block;
   const value = block[type];
   if (!value) return null;
-
-  const isNumberedList = value.children[0].type === 'numbered_list_item';
-
+  console.log(value.children[0]);
+  const isNumberedList =
+    value.children.results[0].type === 'numbered_list_item';
   if (isNumberedList) {
     return (
       <ol>
-        {value.children.map((block: any, index: number) =>
+        {value.children.results.map((block: any, index: number) =>
           renderBlock(block, index)
         )}
       </ol>
@@ -34,7 +34,7 @@ const renderNestedList = (block: any) => {
   }
   return (
     <ul>
-      {value.children.map((block: any, index: number) =>
+      {value.children.results.map((block: any, index: number) =>
         renderBlock(block, index)
       )}
     </ul>
@@ -88,7 +88,7 @@ const renderBlock = (block: any, index: number, headerBlocks?: any) => {
     case 'heading_2':
       return (
         <Scroll to={id} smooth={true} className='duration-300 hover:opacity-75'>
-          <h2 id={id}>
+          <h2 id={id} className=' text-slate-600'>
             <Text text={value.rich_text} key={index} />
             <BsCheck2Square className='ml-2' />
           </h2>

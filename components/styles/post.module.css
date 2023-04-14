@@ -39,10 +39,10 @@
 .code {
   font-family: monospace;
   /* background-color: rgb(242, 242, 242); */
-  background-color: rgba(135,131,120,0.15);
+  background-color: rgba(135, 131, 120, 0.15);
   padding: 0.1em 0.3em;
   border-radius: 3px;
-  color: #EB5757;
+  color: #eb5757;
 }
 
 .italic {
@@ -68,7 +68,7 @@
 .file {
   padding: 2px 4px;
   text-decoration: none;
-  color: rgb(59,130,246);
+  color: rgb(59, 130, 246);
   display: flex;
   align-items: center;
 }
@@ -98,6 +98,11 @@
 .bookmark {
   display: block;
   margin-bottom: 10px;
+}
+
+.whitespace {
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 @media (prefers-color-scheme: dark) {

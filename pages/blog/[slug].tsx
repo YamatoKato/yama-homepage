@@ -42,7 +42,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       })
   );
   const blocksWithChildren = blocks.map((block: any) => {
-    // Add child blocks if the block should contain children but none exists
     if (block.has_children && !block[block.type].children) {
       block[block.type]['children'] = childBlocks.find(
         (x) => x.id === block.id
@@ -81,7 +80,7 @@ const Article: NextPage<ArticleProps> = ({ article, blocks }) => {
       block.type === 'heading_2' ||
       block.type === 'heading_3'
   );
-
+  console.log(blocks);
   return (
     <>
       <Layout>

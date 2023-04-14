@@ -9,6 +9,9 @@ import { DISPLAY_COUNT_PER_PAGE } from '@/constants';
 import Seo from '@/components/Layout/Seo';
 
 export const getStaticProps: GetStaticProps = async () => {
+  /**
+   * ブログ一覧を取得
+   */
   const { results } = await fetchArticles({});
   return {
     props: {

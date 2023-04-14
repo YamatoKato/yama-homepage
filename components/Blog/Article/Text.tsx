@@ -1,11 +1,11 @@
-import { FC } from "react";
-import styles from "../../styles/post.module.css";
+import { FC } from 'react';
+import styles from '../../styles/post.module.css';
 
 const Text: FC<any> = ({ text }) => {
   if (!text) {
     return null;
   }
-  return text.map((value: any,index: number) => {
+  return text.map((value: any, index: number) => {
     const {
       annotations: { bold, code, color, italic, strikethrough, underline },
       text,
@@ -14,20 +14,30 @@ const Text: FC<any> = ({ text }) => {
       <>
         <span
           className={[
-            bold ? styles.bold : "",
-            code ? styles.code : "",
-            italic ? styles.italic : "",
-            strikethrough ? styles.strikethrough : "",
-            underline ? styles.underline : "",
-          ].join(" ")}
-          style={color !== "default" ? { color } : {}}
+            bold ? styles.bold : '',
+            code ? styles.code : '',
+            italic ? styles.italic : '',
+            strikethrough ? styles.strikethrough : '',
+            underline ? styles.underline : '',
+            styles.whitespace,
+          ].join(' ')}
+          style={color !== 'default' ? { color } : {}}
           key={index}
         >
-          {text.link ? <a className="text-sky-400 after:content-['_↗']" href={text.link.url}>{text.content}</a> : text.content}
+          {text.link ? (
+            <a
+              className="text-sky-400 after:content-['_↗']"
+              href={text.link.url}
+            >
+              {text.content}
+            </a>
+          ) : (
+            text.content
+          )}
         </span>
       </>
     );
   });
 };
 
-export default Text
+export default Text;
