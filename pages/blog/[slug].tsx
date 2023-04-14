@@ -75,12 +75,9 @@ const Article: NextPage<ArticleProps> = ({ article, blocks }) => {
   }
 
   const headerBlocks = blocks.filter(
-    (block: any) =>
-      block.type === 'heading_1' ||
-      block.type === 'heading_2' ||
-      block.type === 'heading_3'
+    (block: any) => block.type === 'heading_2'
   );
-  console.log(blocks);
+
   return (
     <>
       <Layout>

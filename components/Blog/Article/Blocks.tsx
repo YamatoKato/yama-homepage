@@ -20,7 +20,6 @@ const renderNestedList = (block: any) => {
   const { type } = block;
   const value = block[type];
   if (!value) return null;
-  console.log(value.children[0]);
   const isNumberedList =
     value.children.results[0].type === 'numbered_list_item';
   if (isNumberedList) {
