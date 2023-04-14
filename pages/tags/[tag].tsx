@@ -51,7 +51,9 @@ const Tag: NextPage<TagProps> = ({ articles, tag }) => {
             pageTitle={`${tag}タグ一覧`}
             pageDescription={`${tag}タグ一覧です`}
           />
-          <h1 className='text-5xl mb-8'>#&thinsp;{`${tag}`}</h1>
+          <h1 className='text-5xl mb-8  text-transparent bg-clip-text bg-gradient-to-r from-stone-900  via-slate-600 to-stone-900'>
+            #&thinsp;{`${tag}`}
+          </h1>
           <div className='grid md:gap-6 mt-10 md:grid-cols-2 w-full my-12'>
             {/* Card */}
             {articles.map((article, index) => (
