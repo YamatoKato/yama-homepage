@@ -15,6 +15,14 @@ import { siteConfig } from '../../site.config';
 
 const pages: MenuPage[] = [
   {
+    label: 'About',
+    to: '',
+  },
+  {
+    label: 'Projects',
+    to: 'projects',
+  },
+  {
     label: 'Blog',
     to: 'blog',
   },

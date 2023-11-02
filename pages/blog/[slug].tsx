@@ -27,6 +27,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { slug } = ctx.params as Params;
   const { results } = await fetchArticles({ slug: slug });
+  console.log(results);
   const article = results[0];
   const articleId = article.id;
   const { results: blocks } = await fetchBlocksByArticleId(articleId);

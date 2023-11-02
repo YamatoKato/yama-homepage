@@ -10,6 +10,9 @@ const Navbar = () => {
     if (router.pathname === '/') {
       return siteConfig.title;
     }
+    if (router.pathname === '/projects') {
+      return 'Projects';
+    }
     if (router.pathname === '/blog') {
       return siteConfig.blogTitle;
     }

@@ -40,7 +40,7 @@ const Card: FC<CardProps> = ({ article }) => {
         <div className='p-4'>
           {getMultiSelect(article.properties.tags.multi_select).map(
             (tag, index) => (
-              <Link href={`blog/${tag}`} key={index}>
+              <Link href={`tags/${tag}`} key={index}>
                 <span
                   key={index}
                   className=' text-white text-sm px-2 py-1 font-normal bg-gradient-to-r from-stone-900  via-slate-600 to-stone-900 rounded-lg break-words mx-1 my-1 inline-block hover:cursor-pointer hover:opacity-75'

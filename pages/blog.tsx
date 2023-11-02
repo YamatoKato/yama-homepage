@@ -7,6 +7,7 @@ import { useState } from 'react';
 import BasicPagination from '../components/Blog/Pagination';
 import { DISPLAY_COUNT_PER_PAGE } from '@/constants';
 import Seo from '@/components/Layout/Seo';
+import Header from '../components/Blog/Header';
 
 export const getStaticProps: GetStaticProps = async () => {
   /**
@@ -33,7 +34,10 @@ const Home: NextPage<IndexProps> = ({ articles }) => {
     <Layout>
       <Seo pageTitle='ブログ一覧' pageDescription='ブログ一覧です' />
       <div className='pt-12'>
-        <h1 className='text-3xl'>一覧</h1>
+        <h1 className='text-3xl'>ブログ一覧</h1>
+        <div>
+          <Header />
+        </div>
         <div className='grid md:gap-6 mt-10 md:grid-cols-2 w-full my-12'>
           {/* Card */}
           {chunkedArticles[page - 1].map((article, index) => (
