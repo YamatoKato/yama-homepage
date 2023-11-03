@@ -8,7 +8,6 @@ import BasicPagination from '../components/Blog/Pagination';
 import { DISPLAY_COUNT_PER_PAGE } from '@/constants';
 import Seo from '@/components/Layout/Seo';
 import Header from '../components/Blog/Header';
-import { ZennArticleType } from '../types/types';
 import { fetchZennArticles } from '../utils/zenn';
 import Zenn from '@/components/Blog/Zenn';
 

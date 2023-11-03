@@ -6,8 +6,15 @@ const Zenn: React.FC<ZennProps> = ({ posts }) => {
   // 横クロールで表示したい
   return (
     <div className='overflow-x-auto'>
-      <div className='max-w-screen-xl mx-auto p-4'>
-        <h2 className='text-2xl font-semibold'>Zenn記事はこちら↓</h2>
+      <div className='max-w-screen-xl mx-auto pt-4'>
+        <h1 className='text-2xl font-semibold px-2'>Zenn記事↓ </h1>
+        <Link
+          href={'https://zenn.dev/yamakt'}
+          target='blank'
+          className=' underline'
+        >
+          Zenn一覧はこちら
+        </Link>
         <ul className='flex space-x-4 p-4'>
           {posts.map((post: ZennArticleType) => (
             <li key={post.id} className='flex-none'>
