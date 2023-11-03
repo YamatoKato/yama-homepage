@@ -11,7 +11,7 @@ const Card: FC<CardProps> = ({ article }) => {
       href={`/blog/${article.properties.slug.formula.string}`}
       className='flex justify-center '
     >
-      <div className='max-w-sm rounded overflow-hidden shadow-lg w-full my-4 md:my-0 content-between grid'>
+      <div className='max-w-sm rounded overflow-hidden shadow-lg w-full my-4 md:my-0 content-between grid hover:shadow-lg transition duration-300 transform hover:scale-105'>
         {/* image */}
         <div>
           {' '}

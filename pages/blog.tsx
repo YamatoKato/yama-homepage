@@ -8,21 +8,28 @@ import BasicPagination from '../components/Blog/Pagination';
 import { DISPLAY_COUNT_PER_PAGE } from '@/constants';
 import Seo from '@/components/Layout/Seo';
 import Header from '../components/Blog/Header';
+import { ZennArticleType } from '../types/types';
+import { fetchZennArticles } from '../utils/zenn';
+import Zenn from '@/components/Blog/Zenn';
 
 export const getStaticProps: GetStaticProps = async () => {
   /**
    * ブログ一覧を取得
    */
   const { results } = await fetchArticles({});
+  const ZennArticles = await fetchZennArticles();
+  // zennArticleを複製する
+
   return {
     props: {
       articles: results ? results : [],
+      zennArticles: ZennArticles ? ZennArticles : [],
     },
     revalidate: 10,
   };
 };
 
-const Home: NextPage<IndexProps> = ({ articles }) => {
+const Home: NextPage<IndexProps> = ({ articles, zennArticles }) => {
   const [page, setPage] = useState<number>(1);
   const chunkedArticles = [];
 
@@ -37,6 +44,9 @@ const Home: NextPage<IndexProps> = ({ articles }) => {
         <h1 className='text-3xl'>ブログ一覧</h1>
         <div>
           <Header />
+        </div>
+        <div>
+          <Zenn posts={zennArticles} />
         </div>
         <div className='grid md:gap-6 mt-10 md:grid-cols-2 w-full my-12'>
           {/* Card */}

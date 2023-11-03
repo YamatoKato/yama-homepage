@@ -21,6 +21,9 @@ export type PageProps = {
   content: string;
 };
 
+export type ZennProps = {
+  posts: ZennArticleType[];
+};
 export type CardProps = {
   article: ArticleType;
 };
@@ -33,7 +36,10 @@ export type ArticleMetaProps = {
   meta: ArticleType;
 };
 
-export type IndexProps = { articles: ArticleType[] };
+export type IndexProps = {
+  articles: ArticleType[];
+  zennArticles: ZennArticleType[];
+};
 export type TagProps = IndexProps & {
   tag: string;
 };
@@ -77,4 +83,12 @@ export type ArticleType = {
   id: string;
   cover: FileType | null;
   properties: PropertyType;
+};
+
+export type ZennArticleType = {
+  id: number;
+  path: string;
+  emoji: string;
+  title: string;
+  published_at: string;
 };
