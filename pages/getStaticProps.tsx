@@ -8,7 +8,6 @@ export const getStaticProps: GetStaticProps = async () => {
    */
   const { results } = await fetchArticles({});
   const ZennArticles = await fetchZennArticles();
-  zennArticleを複製する;
 
   return {
     props: {
