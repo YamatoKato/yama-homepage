@@ -4,7 +4,7 @@ import Text from './Text';
 import styles from '../../styles/post.module.css';
 import Link from 'next/link';
 import NotionBlocks from 'notion-block-renderer';
-import { BsCheck2Square } from 'react-icons/bs';
+import { BsCheck2, BsCheck2All, BsCheck2Square } from 'react-icons/bs';
 import { BsFillFileEarmarkArrowDownFill } from 'react-icons/bs';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { duotoneLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
@@ -43,7 +43,6 @@ const renderNestedList = (block: any) => {
 const renderBlock = (block: any, index: number, headerBlocks?: any) => {
   const { type, id } = block;
   const value = block[type];
-
   switch (type) {
     case 'table_of_contents':
       return (
@@ -56,18 +55,51 @@ const renderBlock = (block: any, index: number, headerBlocks?: any) => {
           </summary>
           <ol className='p-2 md:p-4'>
             {headerBlocks.map((block: any, index: number) => {
-              return (
-                <li key={index}>
-                  <Scroll
-                    to={block.id}
-                    smooth={true}
-                    className='inline-flex items-center py-1 text-base text-stone-700 duration-300 hover:text-stone-500 duotoneLight:text-stone-900 duotoneLight:hover:text-stone-300 md:text-lg'
-                  >
-                    <BsCheck2Square className='mr-2' />
-                    {block[block.type].rich_text[0].text.content}
-                  </Scroll>
-                </li>
-              );
+              // header1の時
+              if (block.type === 'heading_1') {
+                return (
+                  <li key={index}>
+                    <Scroll
+                      to={block.id}
+                      smooth={true}
+                      className='inline-flex items-center py-1 text-base text-stone-700 duration-300 hover:text-stone-500 duotoneLight:text-stone-900 duotoneLight:hover:text-stone-300 md:text-2xl'
+                    >
+                      <BsCheck2Square className='mr-2' />
+                      {block[block.type].rich_text[0].text.content}
+                    </Scroll>
+                  </li>
+                );
+              }
+              // header2の時
+              if (block.type === 'heading_2') {
+                return (
+                  <li key={index}>
+                    <Scroll
+                      to={block.id}
+                      smooth={true}
+                      className=' ml-10 inline-flex items-center py-1 text-base text-stone-700 duration-300 hover:text-stone-500 duotoneLight:text-stone-900 duotoneLight:hover:text-stone-300 md:text-xl'
+                    >
+                      <BsCheck2All className='mr-2' />
+                      {block[block.type].rich_text[0].text.content}
+                    </Scroll>
+                  </li>
+                );
+              }
+              // header3の時
+              if (block.type === 'heading_3') {
+                return (
+                  <li key={index}>
+                    <Scroll
+                      to={block.id}
+                      smooth={true}
+                      className=' ml-20 inline-flex items-center py-1 text-base text-stone-700 duration-300 hover:text-stone-500 duotoneLight:text-stone-900 duotoneLight:hover:text-stone-300 md:text-lg'
+                    >
+                      <BsCheck2 className='mr-2' />
+                      {block[block.type].rich_text[0].text.content}
+                    </Scroll>
+                  </li>
+                );
+              }
             })}
           </ol>
         </details>
@@ -80,25 +112,45 @@ const renderBlock = (block: any, index: number, headerBlocks?: any) => {
       );
     case 'heading_1':
       return (
-        <h1 id={id}>
-          <Text text={value.rich_text} key={index} />
-        </h1>
+        <Scroll to={id} smooth={true} className='duration-300 hover:opacity-75'>
+          <div>
+            <h1
+              id={id}
+              className='pt-8 font-bold bg-clip-text bg-gradient-to-r from-stone-900  via-slate-600 to-stone-900 bg-slate-500'
+            >
+              <BsCheck2Square className='mr-2' />
+              <Text text={value.rich_text} key={index} />
+            </h1>
+            <div className='bg-black h-px opacity-25'></div>
+            <div className='bg-black mt-px h-px opacity-25'></div>
+            <div className='bg-black mt-px h-px opacity-25'></div>
+            <div className='bg-black mt-px mb-4 h-px opacity-25'></div>
+          </div>
+        </Scroll>
       );
     case 'heading_2':
       return (
         <Scroll to={id} smooth={true} className='duration-300 hover:opacity-75'>
-          <h2 id={id} className=' text-zinc-800'>
-            <Text text={value.rich_text} key={index} />
-            <BsCheck2Square className='ml-2' />
-          </h2>
-          <div className='bg-black mt-px mb-4 h-px opacity-25'></div>
+          <div>
+            <h2 id={id} className=' text-zinc-800 pt-8'>
+              <BsCheck2All className='mr-2' />
+              <Text text={value.rich_text} key={index} />
+            </h2>
+            <div className='bg-black mt-px mb-4 h-px opacity-25'></div>
+          </div>
+          {/* <div className='bg-black mt-px mb-4 h-px opacity-25'></div> */}
         </Scroll>
       );
     case 'heading_3':
       return (
-        <h3>
-          <Text text={value.rich_text} key={index} />
-        </h3>
+        <Scroll to={id} smooth={true} className='duration-300 hover:opacity-75'>
+          <div>
+            <h3 id={id} className='pt-5'>
+              <BsCheck2 className='mr-2' />
+              <Text text={value.rich_text} key={index} />
+            </h3>
+          </div>
+        </Scroll>
       );
     case 'bulleted_list_item':
     case 'numbered_list_item':
@@ -136,7 +188,7 @@ const renderBlock = (block: any, index: number, headerBlocks?: any) => {
       const caption = value.caption ? value.caption[0]?.plain_text : '';
       return (
         <figure>
-          <img src={src} alt={caption} />
+          <img src={src} alt={caption} className=' py-7' />
           {caption && <figcaption>{caption}</figcaption>}
         </figure>
       );
