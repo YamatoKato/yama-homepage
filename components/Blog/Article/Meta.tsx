@@ -13,15 +13,26 @@ const Meta: FC<ArticleMetaProps> = ({ meta }) => {
   return (
     <>
       {/* page cover */}
-      <Image
-        className='w-full max-w-screen-lg rounded-lg aspect-video my-4'
-        src={getCover(meta.cover)}
-        alt=''
-        objectFit='cover'
-        width={640}
-        height={360}
-        quality={50}
-      />
+
+      {getCover(meta.cover).includes('s3') ? (
+        <img
+          className='w-full max-w-screen-lg rounded-lg aspect-video my-4'
+          src={getCover(meta.cover)}
+          alt=''
+          width={640}
+          height={360}
+        />
+      ) : (
+        <Image
+          className='w-full max-w-screen-lg rounded-lg aspect-video my-4'
+          src={getCover(meta.cover)}
+          alt=''
+          objectFit='cover'
+          width={640}
+          height={360}
+          quality={50}
+        />
+      )}
       {/* page name */}
       <h1 className='my-8 subpixel-antialiased'>
         {getRichText(meta.properties.name.title)}

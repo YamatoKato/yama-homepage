@@ -14,16 +14,29 @@ const Card: FC<CardProps> = ({ article }) => {
       <div className='max-w-sm rounded overflow-hidden shadow-lg w-full my-4 md:my-0 content-between grid hover:shadow-lg transition duration-300 transform hover:scale-105'>
         {/* image */}
         <div>
-          {' '}
-          <Image
-            className='w-full static w-full h-auto'
-            src={getCover(article.cover)}
-            alt=''
-            objectFit='cover'
-            width={400}
-            height={225}
-            quality={30}
-          />
+          {
+            // s3の場合はimgタグ使う
+            // width={400}height={225}にトリミング
+            getCover(article.cover).includes('s3') ? (
+              <img
+                className='w-full static h-auto'
+                src={getCover(article.cover)}
+                alt=''
+                width={400}
+                height={225}
+              />
+            ) : (
+              <Image
+                className='w-full static h-auto'
+                src={getCover(article.cover)}
+                alt=''
+                objectFit='cover'
+                width={400}
+                height={225}
+                quality={30}
+              />
+            )
+          }
         </div>
 
         {/* title & date*/}
