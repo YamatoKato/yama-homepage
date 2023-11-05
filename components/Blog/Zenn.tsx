@@ -18,10 +18,10 @@ const Zenn: React.FC<ZennProps> = ({ posts }) => {
           </Link>
           <ul className='flex space-x-4 p-4'>
             {posts.map((post: ZennArticleType) => (
-              <li key={post.id} className='flex-none'>
+              <li key={post.id} className='flex-none justify-center'>
                 <Link href={`https://zenn.dev/${post.path}`} target='blank'>
-                  <div className=' px-2 border rounded-md shadow-md hover:shadow-lg transition duration-300 transform hover:scale-105 bg-sky-100'>
-                    <p className='text-lg font-semibold my-2'>
+                  <div className=' px-3 border rounded-md shadow-md hover:shadow-lg transition duration-300 transform hover:scale-105 bg-sky-100 w-96'>
+                    <p className='text-lg font-semibold my-2 break-words'>
                       {post.emoji}
                       {post.title}
                     </p>
