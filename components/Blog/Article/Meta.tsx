@@ -70,6 +70,11 @@ const Meta: FC<ArticleMetaProps> = ({ meta }) => {
             )}
           </div>
         </div>
+        {/* 注意書き */}
+        <p className=' mt-5 text-red-600 font-bold text-sm'>
+          ※
+          画像・動画等のコンテンツが上手く生成されないことがあります。その際はお手数ですが、ページの更新を複数回お願いします。
+        </p>
       </div>
       <div className='bg-black mt-4 h-px opacity-25'></div>
     </>
