@@ -8,6 +8,7 @@ import { BsCheck2, BsCheck2All, BsCheck2Square } from 'react-icons/bs';
 import { BsFillFileEarmarkArrowDownFill } from 'react-icons/bs';
 import { Link as Scroll } from 'react-scroll';
 import Code from './Code';
+import LinkCard from './LinkCard';
 
 const Block: FC<BlockProps> = ({ block, headerBlocks }, key) => {
   return <>{renderBlock(block, key, headerBlocks)}</>;
@@ -222,11 +223,12 @@ const renderBlock = (block: any, index: number, headerBlocks?: any) => {
       );
     case 'bookmark':
       const href = value.url;
-      return (
-        <a href={href} target='_brank' className={styles.bookmark}>
-          {href}
-        </a>
-      );
+      // return (
+      //   <a href={href} target='_brank' className={styles.bookmark}>
+      //     {href}
+      //   </a>
+      // );
+      return <LinkCard url={href} />;
     case 'callout':
       return <NotionBlocks blocks={[block]} />;
     case 'video':
