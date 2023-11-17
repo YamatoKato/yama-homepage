@@ -6,9 +6,8 @@ import Link from 'next/link';
 import NotionBlocks from 'notion-block-renderer';
 import { BsCheck2, BsCheck2All, BsCheck2Square } from 'react-icons/bs';
 import { BsFillFileEarmarkArrowDownFill } from 'react-icons/bs';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { duotoneLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { Link as Scroll } from 'react-scroll';
+import Code from './Code';
 
 const Block: FC<BlockProps> = ({ block, headerBlocks }, key) => {
   return <>{renderBlock(block, key, headerBlocks)}</>;
@@ -199,18 +198,10 @@ const renderBlock = (block: any, index: number, headerBlocks?: any) => {
       return <NotionBlocks blocks={[block]} />;
     case 'code':
       return (
-        <div className='relative'>
-          <div>
-            <p className='bg-inherit text-xs text-neutral-600 inline-block absolute -top-0.8 left-1 bg-slate-200 px-1'>
-              {value.caption.length === 0
-                ? value.language
-                : value.caption[0].text.content}
-            </p>
-          </div>
-          <SyntaxHighlighter language={value.language} style={duotoneLight}>
-            {value.rich_text[0].text.content}
-          </SyntaxHighlighter>
-        </div>
+        <Code
+          code={value.rich_text[0].text.content}
+          language={value.language}
+        />
       );
     case 'file':
       const src_file =

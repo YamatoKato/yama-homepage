@@ -1,23 +1,26 @@
-@import "~tailwindcss/base";
-@import "~tailwindcss/components";
-@import "~tailwindcss/utilities";
- 
+@import '~tailwindcss/base';
+@import '~tailwindcss/components';
+@import '~tailwindcss/utilities';
+
 h1 {
-  @apply font-semibold inline-flex items-center leading-tight text-4xl mt-0 mb-2; overflow-wrap: break-word;
+  @apply font-semibold inline-flex items-center leading-tight text-4xl mt-0 mb-2;
+  overflow-wrap: break-word;
 }
 h2 {
-  @apply inline-flex items-center font-semibold leading-tight text-3xl mt-0 mb-2; overflow-wrap: break-word;
+  @apply inline-flex items-center font-semibold leading-tight text-3xl mt-0 mb-2;
+  overflow-wrap: break-word;
 }
 h3 {
-  @apply inline-flex items-center font-semibold leading-tight text-2xl mt-0 mb-2; overflow-wrap: break-word;
+  @apply inline-flex items-center font-semibold leading-tight text-2xl mt-0 mb-2;
+  overflow-wrap: break-word;
 }
 p {
-  @apply font-light leading-relaxed text-base text-gray-800 mt-0 mb-4; overflow-wrap: break-word;
+  @apply font-light leading-relaxed text-base text-gray-800 mt-0 mb-4;
+  overflow-wrap: break-word;
 }
 /* main {
   @apply min-h-screen flex flex-col justify-center items-center;
 } */
-
 
 .nbr-inline-code {
   @apply text-pink-500 text-sm px-2 py-1 font-normal bg-gray-100 rounded break-words;

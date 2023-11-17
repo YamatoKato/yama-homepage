@@ -92,3 +92,8 @@ export type ZennArticleType = {
   title: string;
   published_at: string;
 };
+
+export type CodeProps = {
+  language: string;
+  code: string;
+};
