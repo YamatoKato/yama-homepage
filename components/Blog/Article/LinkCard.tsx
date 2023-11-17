@@ -71,7 +71,7 @@ const LinkCardCompleted: React.FC<any> = ({ ogData }) => {
       <Link href={ogData.url} target='_blank' rel='noopener noreferrer'>
         <Grid container spacing={2}>
           {ogData.image && (
-            <Grid item xs={12} sm={4} md={3} lg={2}>
+            <Grid item xs={12} sm={4} md={3} lg={3}>
               <Box
                 sx={{
                   width: '100%',
@@ -95,7 +95,7 @@ const LinkCardCompleted: React.FC<any> = ({ ogData }) => {
               </Box>
             </Grid>
           )}
-          <Grid item xs={12} sm={8} md={9} lg={10} container direction='column'>
+          <Grid item xs={12} sm={8} md={9} lg={9} container direction='column'>
             <CardContent>
               <Typography variant='subtitle1' fontWeight='bold' paragraph>
                 {ogData.title}
