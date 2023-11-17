@@ -234,17 +234,24 @@ const renderBlock = (block: any, index: number, headerBlocks?: any) => {
     case 'video':
       const videoSrc =
         value.type === 'external' ? value.external.url : value.file.url;
-      if (videoSrc.match('youtu.be')) {
-        return (
-          <iframe
-            width='100%'
-            height='400px'
-            src={`https://www.youtube.com/embed/${
-              videoSrc.match(/(?<=youtu\.be\/)[^\/]+/)[0]
-            }`}
-            allowFullScreen
-          ></iframe>
-        );
+
+      if (videoSrc.includes('youtu.be')) {
+        const videoIdMatch = videoSrc.match(/youtu\.be\/([^\/]+)/);
+
+        if (videoIdMatch && videoIdMatch.length > 1) {
+          const videoId = videoIdMatch[1];
+          return (
+            <div>
+              <div className='flex items-center justify-center h-[215px] w-[382px] md:h-[500px] md:w-[890px] mt-4'>
+                <iframe
+                  className='w-4/5 h-4/5'
+                  src={`https://www.youtube.com/embed/${videoId}`}
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          );
+        }
       }
       return <NotionBlocks blocks={[block]} />;
     default:
