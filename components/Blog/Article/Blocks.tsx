@@ -22,21 +22,22 @@ const renderNestedList = (block: any) => {
   if (!value) return null;
   const isNumberedList =
     value.children.results[0].type === 'numbered_list_item';
-  if (isNumberedList) {
-    return (
-      <ol>
-        {value.children.results.map((block: any, index: number) =>
-          renderBlock(block, index)
-        )}
-      </ol>
-    );
-  }
   return (
-    <ul>
-      {value.children.results.map((block: any, index: number) =>
-        renderBlock(block, index)
+    <>
+      {isNumberedList ? (
+        <ol>
+          {value.children.results.map((block: any) =>
+            renderBlock(block, block.id)
+          )}
+        </ol>
+      ) : (
+        <ul>
+          {value.children.results.map((block: any) =>
+            renderBlock(block, block.id)
+          )}
+        </ul>
       )}
-    </ul>
+    </>
   );
 };
 

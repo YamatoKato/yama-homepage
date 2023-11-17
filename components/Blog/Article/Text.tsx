@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import styles from '../../styles/post.module.css';
 
 const Text: FC<any> = ({ text }) => {
@@ -11,7 +11,7 @@ const Text: FC<any> = ({ text }) => {
       text,
     } = value;
     return (
-      <>
+      <React.Fragment key={index}>
         <span
           className={[
             bold ? styles.bold : '',
@@ -22,7 +22,6 @@ const Text: FC<any> = ({ text }) => {
             styles.whitespace,
           ].join(' ')}
           style={color !== 'default' ? { color } : {}}
-          key={index}
         >
           {text.link ? (
             <a
@@ -35,7 +34,7 @@ const Text: FC<any> = ({ text }) => {
             text.content
           )}
         </span>
-      </>
+      </React.Fragment>
     );
   });
 };

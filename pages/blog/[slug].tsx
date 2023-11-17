@@ -84,8 +84,8 @@ const Article: NextPage<ArticleProps> = ({ article, blocks }) => {
   const getParagraphs = (blocks: any) => {
     const paragraphs = blocks
       .filter((block: any) => block.type === 'paragraph')
-      .map((block: any) => block.paragraph.text[0].plain_text);
-    return paragraphs.join(' ');
+      .map((block: any) => block.paragraph.rich_text);
+    return getRichText(paragraphs);
   };
 
   return (
@@ -106,8 +106,8 @@ const Article: NextPage<ArticleProps> = ({ article, blocks }) => {
 
           {/* article */}
           <div className='my-12 post'>
-            {blocks.map((block, index) => (
-              <Block key={index} headerBlocks={headerBlocks} block={block} />
+            {blocks.map((block) => (
+              <Block key={block.id} headerBlocks={headerBlocks} block={block} />
             ))}
           </div>
         </article>
