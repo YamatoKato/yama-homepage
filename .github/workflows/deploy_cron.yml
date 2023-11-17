@@ -16,22 +16,21 @@ jobs:
         with:
           ref: ${{ github.event.inputs.ref }}
 
-      # ノードのバージョンを指定 18
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '18'
-      - name: Install Dependencies
-        run: yarn install
+      # - uses: actions/setup-node@v2
+      #   with:
+      #     node-version: '18'
+      # - name: Install Dependencies
+      #   run: yarn install
 
-      - name: Build Project
-        env:
-          NOTION_KEY: ${{ secrets.NOTION_KEY }}
-          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
-          NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: ${{ secrets.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY }}
-          NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: ${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID }}
-          NEXT_PUBLIC_EMAILJS_SERVICE_ID: ${{ secrets.NEXT_PUBLIC_EMAILJS_SERVICE_ID }}
+      # - name: Build Project
+      #   env:
+      #     NOTION_KEY: ${{ secrets.NOTION_KEY }}
+      #     NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+      #     NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: ${{ secrets.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY }}
+      #     NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: ${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID }}
+      #     NEXT_PUBLIC_EMAILJS_SERVICE_ID: ${{ secrets.NEXT_PUBLIC_EMAILJS_SERVICE_ID }}
 
-        run: yarn build
+      #   run: yarn build
 
       - uses: amondnet/vercel-action@v20
         with:
