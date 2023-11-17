@@ -15,9 +15,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.event.inputs.ref }}
+
+      # ノードのバージョンを指定 18
       - uses: actions/setup-node@v2
         with:
-          node-version: '15'
+          node-version: '18'
       - name: Install Dependencies
         run: yarn install
 
