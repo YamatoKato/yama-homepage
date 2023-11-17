@@ -1,4 +1,4 @@
-name: deploy website
+name: deploy to vercel hourly cron
 on:
   # 1時間ごとに実行
   schedule:
