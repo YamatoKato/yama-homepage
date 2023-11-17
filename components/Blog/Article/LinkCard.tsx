@@ -66,6 +66,7 @@ const LinkCardCompleted: React.FC<any> = ({ ogData }) => {
         overflow: 'hidden',
         height: 'auto',
         transition: 'box-shadow 0.3s ease',
+        marginY: 2,
       }}
     >
       <Link href={ogData.url} target='_blank' rel='noopener noreferrer'>

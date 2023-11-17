@@ -223,11 +223,6 @@ const renderBlock = (block: any, index: number, headerBlocks?: any) => {
       );
     case 'bookmark':
       const href = value.url;
-      // return (
-      //   <a href={href} target='_brank' className={styles.bookmark}>
-      //     {href}
-      //   </a>
-      // );
       return <LinkCard url={href} />;
     case 'callout':
       return <NotionBlocks blocks={[block]} />;
