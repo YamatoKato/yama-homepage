@@ -81,12 +81,19 @@ const Article: NextPage<ArticleProps> = ({ article, blocks }) => {
       block.type === 'heading_3'
   );
 
+  const getParagraphs = (blocks: any) => {
+    const paragraphs = blocks
+      .filter((block: any) => block.type === 'paragraph')
+      .map((block: any) => block.paragraph.text[0].plain_text);
+    return paragraphs.join(' ');
+  };
+
   return (
     <>
       <Layout>
         <Seo
           pageTitle={getRichText(article.properties.name.title)}
-          pageDescription={getRichText(article.properties.name.title)}
+          pageDescription={getParagraphs(blocks)}
           pageImg={getCover(article.cover)}
           pageImgWidth={640}
           pageImgHeight={360}
