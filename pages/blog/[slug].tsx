@@ -84,7 +84,7 @@ const Article: NextPage<ArticleProps> = ({ article, blocks }) => {
   const getParagraphs = (blocks: any) => {
     const paragraphs = blocks
       .filter((block: any) => block.type === 'paragraph')
-      .map((block: any) => block.paragraph.rich_text);
+      .map((block: any) => block.paragraph.rich_text)[0];
     return getRichText(paragraphs);
   };
 
