@@ -1,8 +1,8 @@
-name: build and deploy to vercel hourly cron
+name: build and deploy to vercel quaterly cron
 on:
-  # 1時間ごとに実行
+  # 45分ずつに実行
   schedule:
-    - cron: '0 * * * *'
+    - cron: '*/45 * * * *'
 jobs:
   deploy:
     runs-on: ubuntu-latest
