@@ -1,5 +1,8 @@
 name: build and deploy to vercel quaterly cron
 on:
+  push:
+    branches:
+      - master
   # 45分ずつに実行
   schedule:
     - cron: '*/45 * * * *'
@@ -19,14 +22,14 @@ jobs:
         run: yarn install
 
       - name: Build Project
-        env:
+        shell: bash
+        run: |
+          yarn
           NOTION_KEY: ${{ secrets.NOTION_KEY }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
           NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: ${{ secrets.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY }}
           NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: ${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID }}
-          NEXT_PUBLIC_EMAILJS_SERVICE_ID: ${{ secrets.NEXT_PUBLIC_EMAILJS_SERVICE_ID }}
-
-        run: yarn build
+          NEXT_PUBLIC_EMAILJS_SERVICE_ID: ${{ secrets.NEXT_PUBLIC_EMAILJS_SERVICE_ID }} yarn build
 
       - uses: amondnet/vercel-action@v20
         with:
