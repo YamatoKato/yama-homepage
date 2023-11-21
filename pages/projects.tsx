@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       articles: results ? results : [],
     },
-    revalidate: 10,
+    revalidate: 60 * 60 * 24, // 1日
   };
 };
 

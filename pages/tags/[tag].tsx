@@ -38,7 +38,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       articles: results ? results : [],
       tag: tag,
     },
-    revalidate: 10,
+    revalidate: 60 * 60 * 24, // 1日
   };
 };
 
