@@ -55,7 +55,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       article: article,
       blocks: blocksWithChildren,
     },
-    revalidate: 60 * 60 * 24, // 1日
+    // revalidate: 60 * 60　// SSGにする
   };
 };
 

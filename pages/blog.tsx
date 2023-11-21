@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps = async () => {
       articles: results ? results : [],
       zennArticles: ZennArticles ? ZennArticles : [],
     },
-    revalidate: 60 * 60 * 24, // 1日
+    revalidate: 60 * 60, // 1日
   };
 };
 
