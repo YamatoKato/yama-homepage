@@ -6,6 +6,7 @@ import { getRichText } from '@/utils/property';
 import { getCover, getDate, getMultiSelect } from '../../utils/property';
 
 const Card: FC<CardProps> = ({ article }) => {
+  console.log(article.cover?.file?.expiry_time);
   return (
     <Link
       href={`/blog/${article.properties.slug.formula.string}`}
