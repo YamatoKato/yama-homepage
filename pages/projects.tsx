@@ -13,11 +13,12 @@ export const getStaticProps: GetStaticProps = async () => {
    * ブログ一覧を取得
    */
   const { results } = await fetchArticles({});
+  console.log(results);
   return {
     props: {
       articles: results ? results : [],
     },
-    // revalidate: 60 * 60,
+    revalidate: 10,
   };
 };
 
