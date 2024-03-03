@@ -68,7 +68,6 @@ export const HomeContent = () => {
           </h1>
           <ul>
             <li>東京電機大学&nbsp;/&nbsp;システムデザイン工学部(B3)</li>
-            <li>Wizleap,Inc.&nbsp;/&nbsp;エンジニア(アルバイト)</li>
           </ul>
         </div>
         <div className='mb-2 mt-2'>
@@ -89,7 +88,7 @@ export const HomeContent = () => {
           </h1>
           <ul>
             <li>
-              PHP&nbsp;/&nbsp;Laravel&nbsp;/&nbsp;JavaScript&nbsp;/&nbsp;Typecript
+              PHP&nbsp;/&nbsp;Laravel&nbsp;/&nbsp;Go&nbsp;/&nbsp;Typecript&nbsp;/&nbsp;React&nbsp;/&nbsp;Vue
             </li>
           </ul>
         </div>
@@ -100,7 +99,7 @@ export const HomeContent = () => {
           </h1>
           <ul>
             <li>
-              React&nbsp;/&nbsp;Next.js&nbsp;/&nbsp;Go言語&nbsp;/&nbsp;Solidity&nbsp;
+              関数型プログラミング&nbsp;/&nbsp;コンテナ技術&nbsp;/&nbsp;Solidity
             </li>
           </ul>
         </div>
