@@ -69,6 +69,12 @@ const getLanguageLabel = (language: string) => {
     case 'scala':
       languageLabel = 'Scala';
       break;
+    case 'solidity':
+      languageLabel = 'Solidity';
+      break;
+    case 'shell':
+      languageLabel = 'Shell';
+      break;
 
     default:
       languageLabel = language;
@@ -83,7 +89,16 @@ const Code: FC<CodeProps> = ({ code, language }) => {
     Prism.highlightAll();
   }, []);
 
-  const highlightedCode = highlight(code, languages[language], language);
+  let highlightedLanguage = language;
+  if (language === 'solidity') {
+    highlightedLanguage = 'javascript';
+  }
+
+  const highlightedCode = highlight(
+    code,
+    languages[highlightedLanguage],
+    language
+  );
 
   return (
     <pre className='relative'>
